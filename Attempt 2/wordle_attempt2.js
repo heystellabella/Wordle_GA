@@ -1,17 +1,17 @@
 // Initialising variables
 
 // Word to check code
-// let word = "fairy"
+let word = "fairy"
 // Write function to generate random word to be geussed:
 
-function getWord() {
-    const validWords = ['AALII', 'AARGH', 'AARTI', 'ABACA', 'ABACI', 'ABACK', 'ABACS', 'ABAFT', 'ABAKA', 'ABAMP', 'ABAND', 'ABASE', 'ABASH', 'ABASK']
-    const randomWord = validWords[Math.floor(Math.random()*validWords.length)]
-    return randomWord
-}
-const word = getWord()
+// function getWord() {
+//     const validWords = ['AALII', 'AARGH', 'AARTI', 'ABACA', 'ABACI', 'ABACK', 'ABACS', 'ABAFT', 'ABAKA', 'ABAMP', 'ABAND', 'ABASE', 'ABASH', 'ABASK']
+//     const randomWord = validWords[Math.floor(Math.random()*validWords.length)]
+//     return randomWord
+// }
+// const word = getWord()
 
-console.log(word)
+// console.log(word)
 
 // An array inside an array as each word is an array of letters
 let guessedWords = [[]]
@@ -124,14 +124,14 @@ function handleEnterButton() {
             console.log("CORRECT!")
             window.alert("Correct! You guessed it!")
         } else {
-            window.alert("Wrong, try again!")
+            window.alert("Wrong word!")
         }
     }
 
     // Now they have guessed a 5 letter word, push a new empty array into the guessedWords
     guessedWords.push([])
-
-    if (guessedWords.length === 6) {
+    // Must be 7 because at the end of the 6th array, the function creates a new empty one.
+    if (guessedWords.length === 7) {
         window.alert("You have lost the game, loser.")
     }
 
