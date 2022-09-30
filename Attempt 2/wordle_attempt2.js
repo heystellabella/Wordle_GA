@@ -1,17 +1,17 @@
 // Initialising variables
 
 // Word to check code
-let word = "fairy"
+// let word = "fairy"
 // Write function to generate random word to be geussed:
 
-// function getWord() {
-//     const validWords = ['AALII', 'AARGH', 'AARTI', 'ABACA', 'ABACI', 'ABACK', 'ABACS', 'ABAFT', 'ABAKA', 'ABAMP', 'ABAND', 'ABASE', 'ABASH', 'ABASK']
-//     const randomWord = validWords[Math.floor(Math.random()*validWords.length)]
-//     return randomWord
-// }
-// const word = getWord()
+function getWord() {
+    const validWords = ['AALII', 'AARGH', 'AARTI', 'ABACA', 'ABACI', 'ABACK', 'ABACS', 'ABAFT', 'ABAKA', 'ABAMP', 'ABAND', 'ABASE', 'ABASH', 'ABASK']
+    const randomWord = validWords[Math.floor(Math.random()*validWords.length)].toLowerCase()
+    return randomWord
+}
+let word = getWord()
 
-// console.log(word)
+console.log(word)
 
 // An array inside an array as each word is an array of letters
 let guessedWords = [[]]
@@ -37,16 +37,14 @@ function initialiseBoard() {
         square.classList.add("square")
         square.classList.add("animate__animated")
         square.id = index + 1
-        console.log(square.className)
-        console.log(square.id)
+        // console.log(square.className)
+        // console.log(square.id)
         gameBoard.appendChild(square)
         
     }
 }
 
 initialiseBoard()
-
-
 
 // Function to determine the tile colour:
 function getTileColour(letter, index) {
@@ -93,19 +91,6 @@ function handleEnterButton() {
         // Either: 1, 6, 11, 16, 21, 26
         const firstLetterId = guessedWordCount * 5 + 1;
 
-        // currentWordArray.forEach(function(letter, index) { setTimeout(){
-        //     const tileColour = "rgb(58, 58, 0)"
-
-        //     // Gets the letter ID of the current letter
-        //     const letterId = firstLetterId + index
-
-        //     const letterElement = document.getElementById("square")
-
-        //     // Add a class to the square element - class name copied from animate.style
-        //     letterElement.className = "animate__flipInX"
-
-        // }, interval * index); }}
-
         // CODE FOR ANIMATION TAKEN FROM https://github.com/ianlenehan/wordle-clone/blob/master/js/main.js
         currentWordArray.forEach((letter, index) => {
             setTimeout(() => {
@@ -130,6 +115,7 @@ function handleEnterButton() {
 
     // Now they have guessed a 5 letter word, push a new empty array into the guessedWords
     guessedWords.push([])
+
     // Must be 7 because at the end of the 6th array, the function creates a new empty one.
     if (guessedWords.length === 7) {
         window.alert("You have lost the game, loser.")
@@ -186,7 +172,7 @@ function updateGuessedWords(letter) {
 
 // Creates an object of all the keys by taking all the buttons in the class of keyboardRow
 const keys = document.querySelectorAll(".keyboardRow button");
-console.log(keys)
+// console.log(keys)
 
 // Loops through all the key
 for (let i = 0; i < keys.length; i++) {
