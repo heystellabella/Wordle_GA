@@ -1,7 +1,17 @@
 // Initialising variables
 
 // Word to check code
-let word = "dairy"
+// let word = "fairy"
+// Write function to generate random word to be geussed:
+
+function getWord() {
+    const validWords = ['AALII', 'AARGH', 'AARTI', 'ABACA', 'ABACI', 'ABACK', 'ABACS', 'ABAFT', 'ABAKA', 'ABAMP', 'ABAND', 'ABASE', 'ABASH', 'ABASK']
+    const randomWord = validWords[Math.floor(Math.random()*validWords.length)]
+    return randomWord
+}
+const word = getWord()
+
+console.log(word)
 
 // An array inside an array as each word is an array of letters
 let guessedWords = [[]]
@@ -14,14 +24,7 @@ let guessedWordCount = 0;
 
 // Create 6 x 5 worlde board
 
-// Write function to generate random word to be geussed:
-// const validWords = ['AALII', 'AARGH', 'AARTI', 'ABACA', 'ABACI', 'ABACK', 'ABACS', 'ABAFT', 'ABAKA', 'ABAMP', 'ABAND', 'ABASE', 'ABASH', 'ABASK']
-// function getWord() {
-//     let word = validWords[Math.floor(Math.random()*validWords.length)]
-//     return word
-// }
-// const word = getWord()
-// console.log(word)
+
 
 function initialiseBoard() {
     const gameBoard = document.getElementById("wordleBoard")
@@ -73,7 +76,7 @@ function getTileColour(letter, index) {
 function handleEnterButton() {
     // Check that there has been 5 letters chosen
     const currentWordArray = getCurrentWordArray()
-
+    console.log(word)
     if (currentWordArray.length !== 5) {
         console.log("Not enough letters")
         window.alert("Your guess must be 5 letters!")
@@ -81,7 +84,7 @@ function handleEnterButton() {
     
     else {
         // Turn the array into a string by joining all the letters together
-        // const currentWord = currentWordArray.join("")
+        const currentWord = currentWordArray.join("")
 
         // delay for the flip animation
         const interval = 200;
@@ -181,8 +184,8 @@ function updateGuessedWords(letter) {
 
 // Make the keyboard get the letter that is pressed
 
-// Creates an object of all the keys
-const keys = document.getElementsByClassName("key")
+// Creates an object of all the keys by taking all the buttons in the class of keyboardRow
+const keys = document.querySelectorAll(".keyboardRow button");
 console.log(keys)
 
 // Loops through all the key
@@ -199,6 +202,7 @@ for (let i = 0; i < keys.length; i++) {
             return;
         } else if (letter === "Delete") {
             handleDeleteButton()
+            return;
         }
         // Pushes the selected letter into the current array to make the word.
         updateGuessedWords(letter)

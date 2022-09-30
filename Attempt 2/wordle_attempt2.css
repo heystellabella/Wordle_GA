@@ -15,16 +15,23 @@ header {
     padding: 10px;
 }
 
-#container {
+#overallGameContainer {
     display: flex;
-    background-color: aquamarine;
+    background-color: rgb(255, 89, 0);
     height: 100%;
     align-items: center;
     flex-direction: column;
 }
 
+#game {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .title {
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 2rem;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -38,7 +45,7 @@ header {
 }
 
 #boardContainer {
-    /* background-color: rgb(20, 245, 170); */
+    /* background-color: rgb(223, 255, 244); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,26 +54,23 @@ header {
 }
 
 #wordleBoard {
-    /* background-color: rgb(145, 190, 230); */
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
-    /* margin makes no change? */
     margin: 10px;
     padding: 10px;
     /* border: 2px solid black; */
 }
 
 .square {
-    /* background-color: aqua; */
-    border: 2px solid rgb(159, 159, 159);
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 5px;
     height: 50px;
     width: 50px;
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
-
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,54 +78,29 @@ header {
 
 #keyboardContainer {
     height: 200px;
+    /* background-color: rgb(191, 249, 249); */
+    padding: 20px;
 }
 
 .keyboardRow {
     /* background-color: rgb(140, 255, 0); */
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     padding: 2px;
     gap: 2px;
     touch-action: manipulation;
 }
 
-/* .keyboardRow button {
-    font-family: inherit;
-    font-weight: bold;
-    border: 0;
-    padding: 0;
-    height: 58px;
-    cursor: pointer;
-    background-color: rgb(129, 131, 132);
-    color: rgb(215, 218, 220);
-    flex-grow: 1;
-    text-transform: uppercase;
-    margin-right: 6px;
-    border-radius: 4px;
-    user-select: none;
-  } */
-
   .keyboardRow button {
     font-family: inherit;
     height: 50px;
     padding: 10px;
-    border: 2px solid palevioletred;
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 5px;
-    background-color: rgb(184, 121, 244);
+    background-color: rgb(194, 194, 194);
     color: white;
     text-transform: uppercase;
 
-} */
-
-.wideButton {
-    flex-grow: 1.5;
-  }
-
-.wideKey {
-    font-family: 'Courier New', Courier, monospace;
-    border: 2px solid palevioletred;
-    border-radius: 5px;
-    background-color: rgb(203, 28, 86);
-
-}
+} 
