@@ -27,8 +27,6 @@ let guessedWordCount = 0;
 
 // Create 6 x 5 worlde board
 
-
-
 function initialiseBoard() {
     const gameBoard = document.getElementById("wordleBoard")
 
@@ -76,6 +74,13 @@ function getTileColour(letter, index) {
 // Function that stores the word as an array when Enter is clicked
 function handleEnterButton() {
     // Check that there has been 5 letters chosen
+    
+    // if (guessedWordCount === 6) {
+    //     // get out of the loop if you've already made 6 guesses
+    //     console.log("No more guesses")
+    //     return;
+    // }
+    
     const currentWordArray = getCurrentWordArray()
     console.log(word)
     if (currentWordArray.length !== 5) {
@@ -84,6 +89,7 @@ function handleEnterButton() {
     }
 
     else {
+        guessedWords.push([])
         // Turn the array into a string by joining all the letters together
         const currentWord = currentWordArray.join("")
 
@@ -96,23 +102,6 @@ function handleEnterButton() {
 
         // CODE FOR ANIMATION TAKEN FROM https://github.com/ianlenehan/wordle-clone/blob/master/js/main.js
 
-        // if (validWords.includes(currentWord)) {
-        //     console.log("test")
-        //     currentWordArray.forEach((letter, index) => {
-        //         setTimeout(() => {
-        //             const tileColour = getTileColour(letter, index);
-        //             const letterId = firstLetterId + index;
-        //             const letterElement = document.getElementById(letterId)
-        //             letterElement.classList.add("animate__flipInX")
-        //             letterElement.style = `background-color:${tileColour}; border-color:${tileColour}`
-        //         }, 100);
-        //     })
-
-        // } else if (!validWords.includes(currentWord)) {
-        //     confirm("Not a real word.")
-        // }
-
-        // THIS WORKS
         currentWordArray.forEach((letter, index) => {
             setTimeout(() => {
                 const tileColour = getTileColour(letter, index);
@@ -133,10 +122,11 @@ function handleEnterButton() {
         } else {
             window.alert("Wrong word!")
         }
+       
     }
 
     // Now they have guessed a 5 letter word, push a new empty array into the guessedWords
-    guessedWords.push([])
+    // guessedWords.push([])
 
     // Must be 7 because at the end of the 6th array, the function creates a new empty one.
     if (guessedWords.length === 7) {
@@ -182,13 +172,17 @@ function updateGuessedWords(letter) {
     if (currentWordArray && currentWordArray.length < 5) {
         +
         currentWordArray.push(letter)
+
+        const availableSpaceElement = document.getElementById(String(availableSpace))
+        availableSpace = availableSpace + 1
+    
+        availableSpaceElement.textContent = letter;
+    } else {
+        console.log("You have already entered 5 letters.")
     }
 
     // Available space
-    const availableSpaceElement = document.getElementById(String(availableSpace))
-    availableSpace = availableSpace + 1
-
-    availableSpaceElement.textContent = letter;
+ 
 }
 
 // Make the keyboard get the letter that is pressed
@@ -214,6 +208,8 @@ for (let i = 0; i < keys.length; i++) {
             return;
         }
         // Pushes the selected letter into the current array to make the word.
+
+
         updateGuessedWords(letter)
     })
 
