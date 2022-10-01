@@ -45,7 +45,12 @@ Get user input from keyboard
     - If the Delete Key is clicked, run the function that handles it
 
 Handle the Enter Key
+- Checks if its a 5 letter word
+- Checks and changes the tile colours with separate function
+
 Handle the Delete Key
+- Removes the last letter of the array
+- Updates which square user is at
 
 Get the current word array
 - Tracks which word in the array we are at
@@ -53,11 +58,10 @@ Get the current word array
 Update current guessed words:
 - Takes the letters of the user and pushes it into an array
 
-
-
-Unsolved Problems:
+UNSOLVED PROBLEMS:
     Current version cannot handle duplicate letters - i.e 
-    Currently cannot handle fake words.
+    Currently cannot handle fake words
+    Does not stop user from entering more letters than 5 when pressing enter
 
 
 [link to my Wordle](https://heystellabella.github.io/Wordle_GA/Attempt%202/wordle_attempt2.html)
